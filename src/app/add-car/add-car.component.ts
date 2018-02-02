@@ -15,12 +15,14 @@ export class AddCarComponent implements OnInit {
   ngOnInit() {
   }
 
-  addCar() {
+  addCar(carNameE1: HTMLInputElement) {
     this.onAddCar.emit({
-      name: this.carName,
+      name: carNameE1.value,
       year: this.carYear
     })
-    this.carName = '';
+
+    console.log (carNameE1.value);
+    carNameE1.value = '';
     this.carYear = 2017;
   }
 
