@@ -8,23 +8,29 @@ import { Component } from '@angular/core';
 export class CarsComponent {
 
   carName = '';
-  addCarStatus = false;
-  cars = ['Ford', 'Audi', 'BMW', 'Lada', 'Bantly'];
-  dates = [
-    new Date(2015,2,17),
-    new Date(2015,6,17),
-    new Date(2015,8,13),
-    new Date(2015,2,15)
-  ];
+  carYear = 2017;
 
-  constructor() {}
+  cars: [{ name: string, year: number }] = [{
+    name: 'Ford',
+    year: 2010
+  }, {
+    name: 'BMW',
+    year: 2015
+  }, {
+    name: 'Audi',
+    year: 2017
+  }];
+
+
+  constructor() {
+  }
 
   addCar() {
-    this.addCarStatus = true;
-    this.cars.push(this.carName);
+    this.cars.push({
+      name: this.carName,
+      year: this.carYear
+    });
     this.carName = '';
-  }
-  setBigText(car: string) {
-    return car.length > 4 ? true : false;
+    this.carYear = 2017;
   }
 }
